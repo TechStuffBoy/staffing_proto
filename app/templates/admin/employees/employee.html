@@ -1,0 +1,26 @@
+{% from 'bootstrap/form.html' import render_form %}
+
+{% extends "base.html" %}
+
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1> Assign Departments and Roles </h1>
+        <hr>
+        <p>
+            Select a department and role to assign to
+            <span style="color: #2689f2;">
+                {{ employee.first_name }} {{ employee.last_name }}
+            </span>
+        </p>
+        <br>
+        <div id="employee-form" class="container table-box-shadow-ntek">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    {{ render_form(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

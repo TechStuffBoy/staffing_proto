@@ -1,0 +1,10 @@
+<p>Hello {{ recruiter_name }},</p>
+
+<p>We have got the resume from {{ first_name}}.</p>
+<p>Please find the resume and cover letter attached.</p>
+
+<p>First Name : {{form.first_name.data}}</p>
+<p>Contact Number : {{form.contact_number.data}}</p>
+
+<p>Sincerely,</p>
+<p>The Ntech Global Team.</p>

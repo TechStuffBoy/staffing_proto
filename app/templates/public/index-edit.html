@@ -1,0 +1,88 @@
+<!-- {% from 'bootstrap/nav.html' import render_nav_item %} -->
+
+
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <style>
+        body {
+            padding-top: 0px;
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+            opacity: 0.5;
+        }
+        .carousel-brief {
+        /* font-size: 72px; */
+        background: -webkit-linear-gradient( #08AEEA 0%, #2AF598 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        }
+
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-container h1 {
+            padding: 200px;
+            position: relative;
+            z-index: 2;
+        } 
+        .carousel-container .carousel .carousel-inner img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: auto;
+            opacity: 0.6;
+        }
+
+
+    </style>
+   
+   <!-- Carousel -->
+<div class="carousel-container">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ url_for('static', filename='img/img1.jpg') }}" alt="Los Angeles" width="1100" height="500">
+                <div class="carousel-caption">
+                    <h5>Los Angeles</h5>
+                    <p class="display-4 carousel-brief"> We had such a great time in LA!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/img2.jpg') }}" alt="Chicago" width="1100" height="500">
+                <div class="carousel-caption">
+                    <h3>Chicago</h3>
+                    <p>Thank you, Chicago!</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/img3.jpg') }}" alt="New York" width="1100" height="500">
+                <div class="carousel-caption">
+                    <h3>New York</h3>
+                    <p>We love the Big Apple!</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,48 @@
+body {
+            background-color: #edf3f5;
+            padding-top: 70px; 
+            /* This pading is to handle Navbar fixed top */
+}
+
+.dropdown-menu {
+    background-color: #edf3f5;
+}
+
+.banner-text-color {
+    color: #13547a;
+}
+
+.bg-custom-1 {
+    background-color: #85144b;
+}
+
+.bg-custom-2 {
+    background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+
+.copyright {
+    margin: 15px 0 0;
+    text-align: center;
+}
+
+#footer {
+   position:absolute;
+   bottom:0;
+   width:100%;
+   height:35px;   /* Height of the footer */
+   /* background:#6cf; */
+}
+
+.alert {
+    width: 30%;
+    margin: auto;
+    color: #687430;
+    /* background-color: #e6ecca; */
+    border-color: #54554f;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}

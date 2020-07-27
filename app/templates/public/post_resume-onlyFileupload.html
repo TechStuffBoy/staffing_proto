@@ -1,0 +1,44 @@
+{% from 'bootstrap/form.html' import render_field %}
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h3 class="text-muted text-capitalize lead">Post your resume (* Stars are Mandatory)</h3>
+<hr>
+
+<div class="container">
+<form action="" method="post" class="form" role="form" enctype="multipart/form-data">
+    {{ form.csrf_token() }}
+
+    <!-- This ia a single row -->
+    <div class="row">
+        <div class="form-group col-md-6">
+            {{ render_field(form.photo, class='form-control', placeholder='Upload File', autocomplete='off') }}
+            {% for error in form.photo.errors %}
+            <span class="small" style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div class="form-group col-md-6">
+            {{ render_field(form.cover_letter, class='form-control', placeholder='Upload Cover Letter', autocomplete='off') }}
+            {% for error in form.cover_letter.errors %}
+            <span class="small" style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="form-group col-md-6 mb-0">
+            {{ render_field(form.submit) }}
+        </div>
+    </div>
+
+   
+
+</form>
+</div>
+
+
+
+{% endblock %}

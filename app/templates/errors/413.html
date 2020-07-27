@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div style="margin-top: 100px;">
+        <div class="row">
+            <div class="col">
+                <div class="">
+                    <h1 class="text-center">413 Error</h1>
+                    <h3 class="text-center"> The total file size exceeds the limit of 10 MB. </h3>
+                    <hr>
+                    <div class="d-flex justify-content-center">
+                        <a href="{{ url_for('public.post_resume') }}" class="btn btn-default btn-lg btn-custom">
+                            <i class="fa fa-hand-o-left"></i>
+                            Post Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

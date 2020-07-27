@@ -1,0 +1,17 @@
+<p>Hello NTechians,</p>
+
+<p>We have got a contact details from {{ form.first_name.data}}.</p>
+<p>Please find the details below.</p>
+
+<p>First Name : {{form.first_name.data}}</p>
+<p>Contact Number : {{form.contact_number.data}}</p>
+<p>Email id : {{form.email.data}}</p>
+<p>City : {{form.city.data}}</p>
+<p>State : {{form.state.data}}</p>
+<p>Comments : {{form.comments.data}}</p>
+
+<p>We have sent a confirmation to the customer already. Please make sure, that the customer is served.</p>
+<p>Have a Great Day!</p>
+
+<p>Sincerely,</p>
+<p>The Ntech Global Team.</p>

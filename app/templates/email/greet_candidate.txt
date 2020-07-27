@@ -1,0 +1,9 @@
+<p>Hello {{ form.first_name.data }},</p>
+
+<p>Thanks a lot for showing interest.</p>
+<p>We got you covered. We will get in touch with you shortly.</p>
+<p>Have a good Day!</p>
+
+
+<p>Sincerely,</p>
+<p>The Ntech Global Team.</p>

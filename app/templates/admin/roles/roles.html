@@ -1,0 +1,66 @@
+{% from 'bootstrap/form.html' import render_form %}
+
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 style="text-align:center;">Roles</h1>
+
+    {% if roles %}
+    <hr>
+    <div class="justify-content-center">
+        <table class="table table-striped table-bordered table-responsive table-box-shadow-ntek table-bg-ntek">
+            <thead>
+                <tr>
+                    <th width="15%"> Name </th>
+                    <th width="40%"> Description </th>
+                    <th width="15%"> Employee Count </th>
+                    <th width="15%"> Edit </th>
+                    <th width="15%"> Delete </th>
+                </tr>
+            </thead>
+            </thead>
+            <tbody>
+                {% for role in roles %}
+                <tr>
+                    <td> {{ role.name }} </td>
+                    <td> {{ role.description }} </td>
+                    <td>
+                        {% if role.employees %}
+                        {{ role.employees.count() }}
+                        {% else %}
+                        0
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a class="btn btn-default btn-custom" href="{{ url_for('admin.edit_role', id=role.id) }}">
+                            <i class="fa fa-pencil"></i> Edit
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-default btn-custom" href="{{ url_for('admin.delete_role', id=role.id) }}">
+                            <i class="fa fa-trash"></i> Delete
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div style="text-align: center">
+        <h3> No Roles have been added. </h3>
+        <hr class="">
+    </div>
+    {% endif %}
+    <div style="text-align: center">
+        <a href="{{ url_for('admin.add_role') }}" class="btn btn-default btn-custom btn-lg">
+            <i class="fa fa-plus"></i>
+            Add Role
+        </a>
+    </div>
+</div>
+
+{% endblock %}

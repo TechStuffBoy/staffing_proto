@@ -1,0 +1,136 @@
+{% from 'bootstrap/utils.html' import render_messages %}
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+            <!-- Font awsome icons -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link href="{{ url_for('static', filename='css/carousel.css') }}" rel="stylesheet">
+            <link href="{{ url_for('static', filename='css/global.css') }}" rel="stylesheet">
+            <!-- To add jQuery and nav.js , It is added at bottom now.-->
+        {% endblock %}
+
+        <title> {% block title %} {% endblock %} | Ntech Global</title>
+
+    {% endblock %}
+</head>
+
+<body class="d-flex flex-column"> 
+    <!-- Navbar Starts -->
+    <div class="navbar-ntek">
+        <!-- For fixed-top, a js function is added to handle the padding -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a href="{{ url_for('public.index') }}" class="navbar-brand"><img src="{{ url_for('static', filename='img/ntech-logo.jpeg') }}" alt="Logo" style="width:13vw; height:6vh;"></a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="{{ url_for('public.index') }}" class="nav-item nav-link">Home</a>
+                    <a href="{{ url_for('public.whyus') }}" class="nav-item nav-link">Why Ntech?</a>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Services</a>
+                        <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{{ url_for('public.permanent_staffing') }}">Permanent Staffing</a>
+                            <a class="dropdown-item" href="{{ url_for('public.contract_staffing') }}">Contract Staffing</a>
+                            <a class="dropdown-item" href="{{ url_for('public.engagement_model') }}">Engagement Model</a>
+                            <a class="dropdown-item" href="{{ url_for('public.executive_hiring') }}">Executive Hiring</a>
+                            <a class="dropdown-item" href="{{ url_for('public.cxo_hiring') }}">CXO Hiring</a>
+                        </div>
+                    </li>
+                    <a href="{{ url_for('public.post_resume') }}" class="nav-item nav-link">Post Resume</a>
+    
+    
+                </div>
+                <!-- ml-auto places items in right side -->
+                <div class="navbar-nav ml-auto">
+                    <a href="{{ url_for('public.career') }}" class="nav-item nav-link">Career</a>
+                    <a href="{{ url_for('public.contact_us') }}" class="nav-item nav-link">Contact Us</a>
+                    {% if current_user.is_authenticated %}
+                        {% if current_user.is_admin %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">Administration</a>
+                                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ url_for('admin.list_departments') }}">Departments</a>
+                                    <a class="dropdown-item" href="{{ url_for('admin.list_roles') }}">Roles</a>
+                                    <a class="dropdown-item" href="{{ url_for('admin.list_employees') }}">Assign Employees</a>
+                                    <a class="dropdown-item" href="{{ url_for('auth.register') }}">Register</a>
+                                </div>
+                            </li>
+                            <a href="{{ url_for('public.admin_dashboard') }}" class="nav-item nav-link">Dashboard</a>
+                        {% else %}
+                            <a href="{{ url_for('public.dashboard') }}" class="nav-item nav-link">Dashboard</a>
+                        {% endif %}
+                            <a class="nav-link" href="{{ url_for('auth.logout') }}">Logout</a>
+                            <a><i class="nav-link fa fa-user"></i> Hi, {{ current_user.username }}!</a>
+                    {% else %}
+                        <a href="{{ url_for('auth.login') }}" class="nav-item nav-link">Employee Login</a>
+                    {% endif %}
+                </div>
+    
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar Ends -->
+
+    <div class="container align-self-center" style="width: 40vw;">
+        <div class="">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-custom-ntek-{{ category }} shadow rounded-pill">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+        </div>
+    </div>
+
+    <!-- Your page content -->
+    <div id="page-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+
+    {% block scripts %}
+        <!-- Optional JavaScript -->
+        {{ bootstrap.load_js() }}
+        <script src="{{ url_for('static', filename='js/global.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/carousel.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/nav.js') }}"></script>
+    {% endblock %}
+
+    <!-- This is for the footer -->
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+        
+        <div class="container text-center text-primary">
+            <small>
+                <ul class="breadcrumb justify-content-center" style="background :#343A40">
+                    <li><a href="{{ url_for('public.career') }}">Career</a></li>
+                    <li><a href="{{ url_for('public.index') }}">Home</a></li>
+                    <li><a href="{{ url_for('public.contact_us') }}">Contact Us</a></li>
+                </ul>
+            </small>
+            <small class="">Copyright &copy; 2020. All rights reserved.</small>
+        </div>
+    </footer>
+
+</body>
+
+</html>
