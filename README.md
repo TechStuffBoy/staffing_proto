@@ -35,6 +35,7 @@ To do functionalities,
   > gunicorn
   ```
   ```
-  This production repo is deployed in AWS and it is just a copy of it. For the development SQLite database was used and Postgres has been chosen for the production   and it is running with gunicorn.
+  This production repo is deployed in AWS and it is just a copy of it.
+  For the development SQLite database was used and Postgres has been chosen for the production and it is running with gunicorn.
   ```
   
