@@ -1,8 +1,5 @@
 # Welcome to the staffingProto
-
-```
 This is a staffing Industry Prototype that i copied from my Private Repo.
-```
 
 It has the following supports,
 ```
