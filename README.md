@@ -17,9 +17,9 @@ To do functionalities,
  > Add "post-job" functionality to the employees, so that they can post their job requirements from client to the public.
  > Add leave management system.
  ```
- ```
- This web-app is completely developed using the Flask Web Framework.
- ```
+ 
+ This web-app is completely developed using the **Flask Web Framework**.
+ 
  Some major extentions used,
  ```
   > Flask-SQLalchemy
